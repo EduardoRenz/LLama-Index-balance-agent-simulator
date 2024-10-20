@@ -7,7 +7,7 @@ class TestAccountBalance(unittest.TestCase):
 
     def test_get_balance(self):
         gateway = MockedAccountBalanceGateway()
-        result = gateway.get_balance(1, 'USD')
+        result = gateway.get_balance('USD')
         self.assertEqual(result, 100.0)
 
 
