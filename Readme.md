@@ -1,10 +1,10 @@
 # Llama LLM-powered Account Balance Simulator
 
-
-
 ![image](https://github.com/user-attachments/assets/aa2195fd-1728-46ff-a77c-4936e34ead3d)
 
 A project utilizing Llama LLM to simulate user operations on their account balance. The LLM agent interprets user inputs and calls predefined code functions to perform operations like deposits, withdrawals, and balance checks through an API.
+
+[Colab Notebook](https://colab.research.google.com/drive/1ggufeUZwEGzxhjO2y4CHznCf9ow8NmA5?usp=sharing)
 
 ## Installation
 
@@ -38,7 +38,8 @@ Pull the model
 ollama pull lama3.2:1b
 ```
 
-run 
+run
+
 ```bash
 python main.py
 ```
