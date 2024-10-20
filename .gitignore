@@ -1,0 +1,4 @@
+.env
+ai-agent
+**/__pycache__
+.vscode
