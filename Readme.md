@@ -37,3 +37,10 @@ Pull the model
 ```bash
 ollama pull lama3.2:1b
 ```
+
+run 
+```bash
+python main.py
+```
+
+And start prompting
