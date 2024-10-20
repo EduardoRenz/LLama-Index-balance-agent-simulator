@@ -5,7 +5,7 @@ from gateways.AccountBalance import AccountBalanceGateway
 class MockedAccountBalanceGateway(AccountBalanceGateway):
     """Mocked AccountBalanceGateway for testing purposes."""
 
-    balance = {"USD": 100.0, "EUR": 80.0, "GBP": 70.0}
+    balance = {"USD": 300.0, "EUR": 80.0, "GBP": 70.0}
 
     def get_balance(self, currency: str) -> Dict[str, float]:
         """Get user account balance for all currencies."""
@@ -23,8 +23,8 @@ class MockedAccountBalanceGateway(AccountBalanceGateway):
         if (self.balance[currency.upper()] - float_amount < 0):
             raise ValueError("Not enough balance.")
 
-        self.balance[currency.upper()] -= amount
-        return "Withdrawal successful."
+        self.balance[currency.upper()] -= float_amount
+        return f"Withdrawal successful. your new balance of {currency.upper()} is {self.balance[currency.upper()]}"
 
     def deposit(self, amount: str, currency: str) -> None:
         float_amount = float(amount)
@@ -33,4 +33,4 @@ class MockedAccountBalanceGateway(AccountBalanceGateway):
             raise ValueError(f"Currency {currency.upper()} is not supported.")
 
         self.balance[currency.upper()] += float_amount
-        return "Deposit successful."
+        return f"Deposit successful. your new balance is {self.balance[currency.upper()]}"
