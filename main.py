@@ -12,20 +12,23 @@ gateway = MockedAccountBalanceGateway()
 llm = Ollama(model="llama3.2:3b")
 
 tools = [
-    FunctionTool.from_defaults(fn=gateway.get_balance),
-    FunctionTool.from_defaults(fn=gateway.withdraw),
-    FunctionTool.from_defaults(fn=gateway.deposit),
+    FunctionTool.from_defaults(
+        fn=gateway.get_balance, description="A way to get currency amount passing the currency, always pass in uppercase", name="Get Balance"),
+    FunctionTool.from_defaults(fn=gateway.withdraw, name="Withdraw",
+                               description="Withdraw from user account, must have amount and currency"),
+    FunctionTool.from_defaults(
+        fn=gateway.deposit, name="Deposit", description="Deposit to user account, must have amount and currency"),
 ]
-print(tools[0])
+
 prefix_messages = [
     ChatMessage(
         role="system",
         content=(
             f"You are now connected to the balance api currency that user can manage his account"
             "Do not make up any details."
-            "With the function return, add a kindly message informing the return of information"
             "Rememer to call the function apart if user ask more than one currency"
             "The answer must be short"
+            "After a depoist, call the get balance and return the new amount"
             f"""This is the options to call the functions:
             get_balance
             withdraw
