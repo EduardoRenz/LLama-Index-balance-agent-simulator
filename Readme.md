@@ -1,5 +1,9 @@
 # Llama LLM-powered Account Balance Simulator
 
+
+
+![image](https://github.com/user-attachments/assets/aa2195fd-1728-46ff-a77c-4936e34ead3d)
+
 A project utilizing Llama LLM to simulate user operations on their account balance. The LLM agent interprets user inputs and calls predefined code functions to perform operations like deposits, withdrawals, and balance checks through an API.
 
 ## Installation
